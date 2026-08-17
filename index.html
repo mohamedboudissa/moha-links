@@ -81,15 +81,9 @@ justify-content:center;
 font-size:32px;
 font-weight:bold;
 letter-spacing:2px;
-
 background:linear-gradient(135deg,#00c6ff,#0066ff);
-
 border:3px solid rgba(255,255,255,.8);
-
-box-shadow:
-0 0 20px #00c6ff,
-0 0 60px rgba(0,198,255,.45);
-
+box-shadow:0 0 20px #00c6ff,0 0 60px rgba(0,198,255,.45);
 animation:pulse 2.5s infinite;
 }
 
@@ -113,8 +107,33 @@ letter-spacing:3px;
 .subtitle{
 color:#9ca3af;
 margin-top:8px;
-margin-bottom:30px;
+margin-bottom:20px;
 font-size:15px;
+}
+
+.actions{
+display:flex;
+gap:12px;
+margin-bottom:18px;
+}
+
+.actions button{
+flex:1;
+height:52px;
+border:1px solid rgba(0,198,255,.6);
+border-radius:15px;
+background:#111827;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.2s;
+}
+
+.actions button:hover{
+transform:translateY(-2px);
+box-shadow:0 0 18px rgba(0,198,255,.4);
+border-color:#00c6ff;
 }
 
 .links{
@@ -128,25 +147,16 @@ position:relative;
 display:flex;
 align-items:center;
 justify-content:center;
-
 height:62px;
-
 text-decoration:none;
 color:white;
-
 background:rgba(17,24,39,.82);
-
 border:1px solid rgba(0,198,255,.55);
-
 border-radius:17px;
-
 font-size:18px;
 font-weight:bold;
-
 box-shadow:0 8px 25px rgba(0,0,0,.25);
-
 transition:.25s;
-
 overflow:hidden;
 }
 
@@ -154,14 +164,12 @@ overflow:hidden;
 content:"";
 position:absolute;
 inset:0;
-
 background:linear-gradient(
 90deg,
 transparent,
 rgba(0,198,255,.18),
 transparent
 );
-
 transform:translateX(-100%);
 transition:.5s;
 }
@@ -172,9 +180,7 @@ transform:translateX(100%);
 
 .link:hover{
 transform:translateY(-3px) scale(1.01);
-
 border-color:#00c6ff;
-
 box-shadow:
 0 0 20px rgba(0,198,255,.35),
 0 10px 30px rgba(0,0,0,.35);
@@ -193,17 +199,11 @@ color:#00c6ff;
 font-size:20px;
 }
 
-.footer{
-margin-top:35px;
-color:#6b7280;
-font-size:13px;
-}
-
 .online{
 display:inline-flex;
 align-items:center;
 gap:7px;
-margin-top:12px;
+margin-top:25px;
 color:#9ca3af;
 font-size:13px;
 }
@@ -214,6 +214,12 @@ height:8px;
 background:#22c55e;
 border-radius:50%;
 box-shadow:0 0 10px #22c55e;
+}
+
+.footer{
+margin-top:25px;
+color:#6b7280;
+font-size:13px;
 }
 
 @media(max-width:450px){
@@ -236,6 +242,10 @@ font-size:27px;
 height:58px;
 font-size:17px;
 }
+
+.actions button{
+font-size:14px;
+}
 }
 </style>
 </head>
@@ -252,6 +262,18 @@ MOH
 
 <div class="subtitle">
 🔗 كل روابطي في مكان واحد
+</div>
+
+<div class="actions">
+
+<button onclick="copyLink()">
+📋 نسخ الرابط
+</button>
+
+<button onclick="sharePage()">
+📤 مشاركة
+</button>
+
 </div>
 
 <div class="links">
@@ -308,6 +330,44 @@ MOHA Links Online
 </div>
 
 </div>
+
+<script>
+
+function copyLink(){
+
+if(navigator.clipboard){
+
+navigator.clipboard.writeText(window.location.href);
+
+alert("✅ تم نسخ رابط MOHA Links");
+
+}else{
+
+alert("❌ المتصفح لا يدعم النسخ التلقائي");
+
+}
+
+}
+
+function sharePage(){
+
+if(navigator.share){
+
+navigator.share({
+title:"MOHA Links",
+text:"🔗 روابط MOHAMED",
+url:window.location.href
+});
+
+}else{
+
+copyLink();
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
