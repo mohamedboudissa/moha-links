@@ -1,343 +1,726 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>MOHA Links | MOHAMED</title>
 
 <style>
+
 *{
 box-sizing:border-box;
 margin:0;
 padding:0;
 }
 
-body{
-min-height:100vh;
-font-family:Arial,sans-serif;
-color:white;
-text-align:center;
-display:flex;
-justify-content:center;
-background:#050816;
-overflow-x:hidden;
+html{
+scroll-behavior:smooth;
 }
+
+body{
+
+min-height:100vh;
+
+font-family:Arial,sans-serif;
+
+color:white;
+
+text-align:center;
+
+display:flex;
+
+justify-content:center;
+
+background:#050816;
+
+overflow-x:hidden;
+
+position:relative;
+
+}
+
+/* =========================
+   BACKGROUND
+========================= */
 
 body::before{
+
 content:"";
+
 position:fixed;
-width:500px;
-height:500px;
-background:#00c6ff;
-filter:blur(150px);
-opacity:.12;
-border-radius:50%;
-top:-180px;
-left:-150px;
-animation:move 8s infinite alternate;
+
+inset:0;
+
+background-image:
+
+linear-gradient(
+rgba(3,8,18,.45),
+rgba(3,8,18,.65)
+),
+
+url("1786994704601.png");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+z-index:0;
+
 }
+
+/* =========================
+   BLUE GLOW
+========================= */
 
 body::after{
+
 content:"";
+
 position:fixed;
-width:450px;
-height:450px;
-background:#0066ff;
-filter:blur(150px);
-opacity:.12;
+
+width:500px;
+
+height:500px;
+
+background:#00c6ff;
+
+filter:blur(160px);
+
+opacity:.10;
+
 border-radius:50%;
-bottom:-200px;
-right:-150px;
-animation:move2 10s infinite alternate;
+
+top:-180px;
+
+left:-180px;
+
+animation:glow 8s infinite alternate;
+
+z-index:1;
+
 }
 
-@keyframes move{
-from{transform:translate(0,0)}
-to{transform:translate(180px,100px)}
+@keyframes glow{
+
+from{
+
+transform:translate(0,0);
+
 }
 
-@keyframes move2{
-from{transform:translate(0,0)}
-to{transform:translate(-160px,-100px)}
+to{
+
+transform:translate(180px,100px);
+
 }
+
+}
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container{
+
 width:100%;
+
 max-width:560px;
+
 padding:45px 18px;
+
 position:relative;
+
 z-index:2;
+
 }
 
+/* =========================
+   LOGO
+========================= */
+
 .logo{
-width:110px;
-height:110px;
+
+width:120px;
+
+height:120px;
+
 margin:auto;
+
 border-radius:50%;
+
+overflow:hidden;
+
 display:flex;
+
 align-items:center;
+
 justify-content:center;
-font-size:32px;
-font-weight:bold;
-letter-spacing:2px;
-background:linear-gradient(135deg,#00c6ff,#0066ff);
-border:3px solid rgba(255,255,255,.8);
-box-shadow:0 0 20px #00c6ff,0 0 60px rgba(0,198,255,.45);
-animation:pulse 2.5s infinite;
+
+background:#000;
+
+border:3px solid rgba(255,255,255,.9);
+
+box-shadow:
+
+0 0 20px #00c6ff,
+
+0 0 60px rgba(0,198,255,.45);
+
+animation:pulse 3s infinite;
+
+}
+
+.logo img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+display:block;
+
 }
 
 @keyframes pulse{
+
 0%,100%{
+
 transform:scale(1);
-box-shadow:0 0 20px #00c6ff,0 0 60px rgba(0,198,255,.35);
+
+box-shadow:
+
+0 0 20px #00c6ff,
+
+0 0 60px rgba(0,198,255,.35);
+
 }
+
 50%{
+
 transform:scale(1.04);
-box-shadow:0 0 35px #00c6ff,0 0 80px rgba(0,198,255,.55);
+
+box-shadow:
+
+0 0 35px #00c6ff,
+
+0 0 80px rgba(0,198,255,.55);
+
 }
+
 }
+
+/* =========================
+   NAME
+========================= */
 
 h1{
+
 font-size:32px;
+
 margin-top:22px;
+
 letter-spacing:3px;
+
+text-shadow:
+
+0 3px 15px rgba(0,0,0,.8);
+
 }
+
+/* =========================
+   SUBTITLE
+========================= */
 
 .subtitle{
-color:#9ca3af;
+
+color:#d1d5db;
+
 margin-top:8px;
+
 margin-bottom:20px;
+
 font-size:15px;
+
+text-shadow:
+
+0 2px 8px rgba(0,0,0,.8);
+
 }
 
+/* =========================
+   ACTION BUTTONS
+========================= */
+
 .actions{
+
 display:flex;
+
 gap:12px;
+
 margin-bottom:18px;
+
 }
 
 .actions button{
+
 flex:1;
+
 height:52px;
-border:1px solid rgba(0,198,255,.6);
+
+border:1px solid rgba(0,198,255,.7);
+
 border-radius:15px;
-background:#111827;
+
+background:rgba(10,18,32,.82);
+
+backdrop-filter:blur(10px);
+
+-webkit-backdrop-filter:blur(10px);
+
 color:white;
+
 font-size:16px;
+
 font-weight:bold;
+
 cursor:pointer;
-transition:.2s;
+
+transition:.25s;
+
 }
 
 .actions button:hover{
+
 transform:translateY(-2px);
-box-shadow:0 0 18px rgba(0,198,255,.4);
+
+box-shadow:
+
+0 0 18px rgba(0,198,255,.5);
+
 border-color:#00c6ff;
+
 }
 
+/* =========================
+   LINKS
+========================= */
+
 .links{
+
 display:flex;
+
 flex-direction:column;
+
 gap:14px;
+
 }
 
 .link{
+
 position:relative;
+
 display:flex;
+
 align-items:center;
+
 justify-content:center;
+
 height:62px;
+
 text-decoration:none;
+
 color:white;
-background:rgba(17,24,39,.82);
-border:1px solid rgba(0,198,255,.55);
+
+background:rgba(10,18,32,.78);
+
+backdrop-filter:blur(10px);
+
+-webkit-backdrop-filter:blur(10px);
+
+border:1px solid rgba(0,198,255,.65);
+
 border-radius:17px;
+
 font-size:18px;
+
 font-weight:bold;
-box-shadow:0 8px 25px rgba(0,0,0,.25);
+
+box-shadow:
+
+0 8px 25px rgba(0,0,0,.35);
+
 transition:.25s;
+
 overflow:hidden;
+
 }
 
 .link::before{
+
 content:"";
+
 position:absolute;
+
 inset:0;
-background:linear-gradient(
+
+background:
+
+linear-gradient(
+
 90deg,
+
 transparent,
+
 rgba(0,198,255,.18),
+
 transparent
+
 );
+
 transform:translateX(-100%);
+
 transition:.5s;
+
 }
 
 .link:hover::before{
+
 transform:translateX(100%);
+
 }
 
 .link:hover{
+
 transform:translateY(-3px) scale(1.01);
+
 border-color:#00c6ff;
+
 box-shadow:
-0 0 20px rgba(0,198,255,.35),
-0 10px 30px rgba(0,0,0,.35);
+
+0 0 20px rgba(0,198,255,.45),
+
+0 10px 30px rgba(0,0,0,.5);
+
 }
 
+/* =========================
+   ICONS
+========================= */
+
 .icon{
+
 position:absolute;
+
 right:20px;
+
 font-size:24px;
+
 }
 
 .arrow{
+
 position:absolute;
+
 left:20px;
+
 color:#00c6ff;
-font-size:20px;
+
+font-size:25px;
+
 }
 
+/* =========================
+   ONLINE
+========================= */
+
 .online{
+
 display:inline-flex;
+
 align-items:center;
+
 gap:7px;
+
 margin-top:25px;
-color:#9ca3af;
+
+color:#d1d5db;
+
 font-size:13px;
+
+text-shadow:
+
+0 2px 8px rgba(0,0,0,.8);
+
 }
 
 .dot{
+
 width:8px;
+
 height:8px;
+
 background:#22c55e;
+
 border-radius:50%;
-box-shadow:0 0 10px #22c55e;
+
+box-shadow:
+
+0 0 10px #22c55e;
+
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 .footer{
+
 margin-top:25px;
-color:#6b7280;
+
+color:#9ca3af;
+
 font-size:13px;
+
+text-shadow:
+
+0 2px 8px rgba(0,0,0,.8);
+
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:450px){
 
 .container{
+
 padding:35px 15px;
+
 }
 
 .logo{
-width:95px;
-height:95px;
-font-size:28px;
+
+width:105px;
+
+height:105px;
+
 }
 
 h1{
+
 font-size:27px;
+
+}
+
+.subtitle{
+
+font-size:14px;
+
 }
 
 .link{
+
 height:58px;
+
 font-size:17px;
+
 }
 
 .actions button{
+
 font-size:14px;
+
 }
+
 }
+
+@media(max-width:350px){
+
+.logo{
+
+width:95px;
+
+height:95px;
+
+}
+
+h1{
+
+font-size:24px;
+
+}
+
+.link{
+
+font-size:16px;
+
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
+<!-- LOGO -->
+
 <div class="logo">
-MOH
+
+<img
+src="file_0000000037c471f4b7bc156e6b463a77.png"
+alt="MOH Logo">
+
 </div>
+
+<!-- NAME -->
 
 <h1>MOHAMED</h1>
 
+<!-- SUBTITLE -->
+
 <div class="subtitle">
+
 🔗 كل روابطي في مكان واحد
+
 </div>
+
+<!-- BUTTONS -->
 
 <div class="actions">
 
 <button onclick="copyLink()">
+
 📋 نسخ الرابط
+
 </button>
 
 <button onclick="sharePage()">
+
 📤 مشاركة
+
 </button>
 
 </div>
 
+<!-- LINKS -->
+
 <div class="links">
 
-<a class="link"
+<a
+class="link"
 href="https://www.tiktok.com/@mohamed_77777.0"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
+
 <span class="icon">🎵</span>
+
 TikTok
+
 <span class="arrow">‹</span>
+
 </a>
 
-<a class="link"
+<a
+class="link"
 href="https://www.instagram.com/mohamed_77777.0"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
+
 <span class="icon">📸</span>
+
 Instagram
+
 <span class="arrow">‹</span>
+
 </a>
 
-<a class="link"
+<a
+class="link"
 href="https://discord.gg/srvTkGb9"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
+
 <span class="icon">💬</span>
+
 Discord
+
 <span class="arrow">‹</span>
+
 </a>
 
-<a class="link"
+<a
+class="link"
 href="https://www.youtube.com/@MOHAMED_77-g5w"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
+
 <span class="icon">▶️</span>
+
 YouTube
+
 <span class="arrow">‹</span>
+
 </a>
 
-<a class="link"
+<a
+class="link"
 href="https://t.me/MOHAMED_77770"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
+
 <span class="icon">✈️</span>
+
 Telegram
+
 <span class="arrow">‹</span>
+
 </a>
 
 </div>
+
+<!-- ONLINE -->
 
 <div class="online">
+
 <span class="dot"></span>
+
 MOHA Links Online
+
 </div>
 
+<!-- FOOTER -->
+
 <div class="footer">
+
 © 2026 MOHAMED
+
 </div>
 
 </div>
 
 <script>
 
+/* =========================
+   COPY LINK
+========================= */
+
 function copyLink(){
 
 if(navigator.clipboard){
 
-navigator.clipboard.writeText(window.location.href);
+navigator.clipboard.writeText(
+window.location.href
+);
 
 alert("✅ تم نسخ رابط MOHA Links");
 
@@ -349,14 +732,22 @@ alert("❌ المتصفح لا يدعم النسخ التلقائي");
 
 }
 
+/* =========================
+   SHARE
+========================= */
+
 function sharePage(){
 
 if(navigator.share){
 
 navigator.share({
+
 title:"MOHA Links",
+
 text:"🔗 روابط MOHAMED",
+
 url:window.location.href
+
 });
 
 }else{
@@ -370,4 +761,5 @@ copyLink();
 </script>
 
 </body>
+
 </html>
